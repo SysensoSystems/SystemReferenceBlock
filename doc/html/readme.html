@@ -1,0 +1,189 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>System Reference Block</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-07-27"><meta name="DC.source" content="readme.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1><b><tt>System Reference Block</tt></b></h1><!--introduction--><p><b>System Reference Block</b> helps to refer the logic of a preferred Subsystem or Model. This block overcomes the limitations of Model Reference.</p><p>Developed by: <a href="http://www.sysenso.com">Sysenso Systems</a></p><p>Contact: <a href="mailto:contactus@sysenso.com">contactus@sysenso.com</a></p><p><b>Version Log</b> 1.0 - Initial Version</p><p><b><tt>Prerequisite</tt></b></p><div><ul><li>SIMULINK version 2016b-2021a</li></ul></div><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1"><b><tt>Advantages of using System Reference block over conventional Model Reference Block</tt></b></a></li><li><a href="#2"><b>How to launch it:</b></a></li><li><a href="#3"><b>Usage instructions</b></a></li><li><a href="#4"><b>Context Menu</b></a></li></ul></div><h2><b><tt>Advantages of using System Reference block over conventional Model Reference Block</tt></b><a name="1"></a></h2><div><ol><li>Continuous sample time blocks can be used.</li><li>Virtual bus can be used.</li><li>Goto and From blocks can cross system reference boundaries.</li><li>System Reference Block just copies the logic of the desired system, whereas Model Reference block actually refers the system selected.</li><li>With System Reference block, we need only one block to refer Model or Subsystem.</li></ol></div><h2><b>How to launch it:</b><a name="2"></a></h2><p>1. Add the utils folder to the path.</p><p><img vspace="5" hspace="5" src="..\Images\addToPath.png" alt=""> </p><p>2. Open the library browser and select <b>System Reference</b> on the left pane. If not available, Enter the command <b>sl_refresh_customizations</b> in the command window and then open library browser.</p><p>3. Drag and Drop the <b>System Reference Block</b> on the right pane into the required system just like any other block.</p><p><img vspace="5" hspace="5" src="..\Images\libraryBrowser.png" alt=""> </p><h2><b>Usage instructions</b><a name="3"></a></h2><p>1. Double click the System Reference block to open the <b>System Reference Block GUI</b>.</p><p><img vspace="5" hspace="5" src="..\Images\systemReferenceGUI.png" alt=""> </p><p>2. Select the reference type.</p><div><ul><li>System Reference block allows the user to select two types of reference.</li></ul></div><div><ol><li>Model Reference.</li><li>Subsystem Reference.</li></ol></div><p>3. For Model Reference, browse the parent Model using Browse button. For Subsystem Reference, select the parent Subsystem and then click the GCB button.</p><p><img vspace="5" hspace="5" src="..\Images\modelGUI.png" alt=""> </p><p><img vspace="5" hspace="5" src="..\Images\subSystemGUI.png" alt=""> </p><p>4. Click <b>Apply</b>.</p><p>5. Now the selected Model is referred in the child Model.</p><div><ul><li>In <b>System Reference Block</b>, only logic is copied. So when this block is viewed under mask, a copy of selected Model or subSystem will be placed into this block. A sample image is shown below.</li></ul></div><p><b>Reference Type: Model</b></p><p><img vspace="5" hspace="5" src="..\Images\referencedModel.png" alt=""> </p><p><b>Reference Type: subSystem</b></p><p><img vspace="5" hspace="5" src="..\Images\referencedsubSystem.png" alt=""> </p><h2><b>Context Menu</b><a name="4"></a></h2><p>A set of new custom context menus are provided with the System Reference Block under the name "System Reference".</p><p><img vspace="5" hspace="5" src="..\Images\contextMenu.png" alt=""> </p><p>1. Refresh Link: Checks whether the link exists between the child and the parent Model. If the process is unable to establish link which is either due to renaming the parent model/subsystem or the parent model is not in path, the foreground color of System Reference Block is changed to red.</p><p>2. Detect Changes: Compares the child and parent Model or subSystem for any block level changes or parameter changes. A text file stored in tempdir contains the list of changes between child and parent. If changes were found, the foreground color of System Reference Block is changed to magenta. Successfull pull or push from context menu restores the original foreground color.</p><p>3. Pull Changes: Updates the child (System Reference Block) with the changes from the parent.</p><p>4. Push Changes: Updates the parent model or subSystem with the changes from the child.</p><p>5. Open Block: Opens the current System Reference Block to expose the contents inside it.</p><p>6. Open Block Parameters: Opens the GUI for System Reference.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% *|System Reference Block|*
+% 
+% *System Reference Block* helps to refer the logic of a preferred Subsystem or Model.
+% This block overcomes the limitations of Model Reference.
+%
+% Developed by: <http://www.sysenso.com Sysenso Systems>
+%
+% Contact: contactus@sysenso.com
+%
+% *Version Log*
+% 1.0 - Initial Version
+%
+% *|Prerequisite|*
+%
+% * SIMULINK version 2016b-2021a
+%
+%% *|Advantages of using System Reference block over conventional Model Reference Block|*
+%
+% # Continuous sample time blocks can be used.
+% # Virtual bus can be used.
+% # Goto and From blocks can cross system reference boundaries.
+% # System Reference Block just copies the logic of the desired system, whereas Model Reference block
+% actually refers the system selected.
+% # With System Reference block, we need only one block to refer Model or Subsystem.
+% 
+
+%% *How to launch it:*
+%
+% 1. Add the utils folder to the path.
+% 
+% <<..\Images\addToPath.png>>
+% 
+% 2. Open the library browser and select *System Reference* on the left pane. 
+% If not available, Enter the command *sl_refresh_customizations* in the command window and then open library browser.
+%
+% 3. Drag and Drop the *System Reference Block* on the right pane into the required system just like any other block.
+% 
+% <<..\Images\libraryBrowser.png>>
+% 
+%% *Usage instructions*
+%
+% 1. Double click the System Reference block to open the *System Reference
+% Block GUI*.
+% 
+% <<..\Images\systemReferenceGUI.png>>
+% 
+% 2. Select the reference type. 
+%
+% * System Reference block allows the user to select two types of reference.
+% 
+% # Model Reference.
+% # Subsystem Reference.
+% 
+% 3. For Model Reference, browse the parent Model using Browse button. 
+% For Subsystem Reference, select the parent Subsystem and then click the GCB button.
+%
+% 
+% <<..\Images\modelGUI.png>>
+% 
+%
+% <<..\Images\subSystemGUI.png>>
+% 
+%
+% 4. Click *Apply*.
+%
+% 5. Now the selected Model is referred in the child Model.
+%
+% * In *System Reference Block*, only logic is copied. So when this block is
+% viewed under mask, a copy of selected Model or subSystem will be placed into this block. A
+% sample image is shown below.
+%
+%
+% *Reference Type: Model*
+%
+%
+% <<..\Images\referencedModel.png>>
+% 
+%
+% *Reference Type: subSystem*
+%
+%
+% <<..\Images\referencedsubSystem.png>>
+%
+%
+%% *Context Menu*
+%
+% A set of new custom context menus are provided with the System Reference Block under the name "System Reference".
+%
+% 
+% <<..\Images\contextMenu.png>>
+%
+%
+% 1. Refresh Link: Checks whether the link exists between the child and the parent
+% Model. If the process is unable to establish link which is either due to
+% renaming the parent model/subsystem or the parent model is not in path,
+% the foreground color of System Reference Block is changed to red.
+%
+% 2. Detect Changes: Compares the child and parent Model or subSystem for
+% any block level changes or parameter changes. A text file stored in
+% tempdir contains the list of changes between child and parent. If changes
+% were found, the foreground color of System Reference Block is changed to
+% magenta. Successfull pull or push from context menu restores the original
+% foreground color.
+% 
+% 3. Pull Changes: Updates the child (System Reference Block) with the
+% changes from the parent.
+% 
+% 4. Push Changes: Updates the parent model or subSystem with the changes
+% from the child.
+%
+% 5. Open Block: Opens the current System Reference Block to expose the
+% contents inside it.
+%
+% 6. Open Block Parameters: Opens the GUI for System Reference.
+
+
+
+##### SOURCE END #####
+--></body></html>
