@@ -19,6 +19,10 @@ There is one block "System Reference" available in this library.
    the selected sub-system contents will be placed into this block.
 Detailed help can be found from the following document "SystemReferenceBlock\docs\SystemReference_doc.pdf".
 
+
+MATLAB Release Compatibility: Created with R2015b, Compatible with any release
+
+
 Developed by: Sysenso Systems, https://sysenso.com/
 
 Contact: contactus@sysenso.com
